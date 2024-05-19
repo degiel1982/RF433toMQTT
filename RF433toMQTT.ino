@@ -4,6 +4,28 @@
 #include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
 #include <WebSerial.h>
+/*--------------------------------------------------------------------------*/
+/*CHANGE YOUR SETTINGS HERE*/
+const unsigned long DEBOUNCE = 2000;
+const int RF_PIN = 32;
+
+// WiFi credentials
+const char *SSID = ""; //SET YUR WIFI SSID
+const char *PASSWORD = ""; //SET YOUR WIFI PASSWORD
+
+// MQTT broker settings
+const char *MQTT_SERVER = ""; //SET YOUR MQTT BROKER IP ADDRES
+const int MQTT_PORT = 1883;  //SET YOUR MQTT BROKER PORT IF DIFFERENT
+const char *MQTT_USERNAME = ""; //SET YOUR MQTT BROKER USERNAME
+const char *MQTT_PASSWORD = ""; //SET YOUR MQTT BROKER PASSWORD
+
+// Device settings
+const char *DEVICE_NAME = "RF433Receiver";
+const char *DEVICE_TOPIC = "rf433/receiver";
+const char *DEVICE_TOPIC_STATIC = "rf433/receiver_static";
+/*-------------------------------------------------------------------------*/
+
+
 
 AsyncWebServer server(80);
 
@@ -35,23 +57,7 @@ private:
   RCSwitch rf433;
 };
 
-const unsigned long DEBOUNCE = 2000;
-const int RF_PIN = 32;
 
-// WiFi credentials
-const char *SSID = "";
-const char *PASSWORD = "";
-
-// MQTT broker settings
-const char *MQTT_SERVER = "";
-const int MQTT_PORT = 1883;
-const char *MQTT_USERNAME = "";
-const char *MQTT_PASSWORD = "";
-
-// Device settings
-const char *DEVICE_NAME = "RF433Receiver";
-const char *DEVICE_TOPIC = "rf433/receiver";
-const char *DEVICE_TOPIC_STATIC = "rf433/receiver_static";
 
 RF433 rf433;
 
